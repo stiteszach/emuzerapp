@@ -1,0 +1,15 @@
+/ Nav Sidebar
+/ This is source ordered to be pulled to the left on larger screens
+.sidebar
+  = render 'partials/app_sidebar'
+.main-window
+  %h2.current-page-title
+    Edit Current Resume
+  .inner-main-window.resume-form-wrap
+    .data-container
+      = render 'form'
+      = link_to 'Show', @resume
+      = link_to 'Back', resumes_path
+// Load custom secondary menu for this page: could include tips? Or just take it out completely, idk.
+.secondary-sidebar
+  = render 'partials/app_secondary_sidebar'

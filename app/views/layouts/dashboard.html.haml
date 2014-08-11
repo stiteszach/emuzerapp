@@ -1,0 +1,28 @@
+!!!
+//paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+%html.ie6{lang: "en"}
+%html.ie7{lang: "en"}
+%html.ie8{lang: "en"}
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/custom.modernizr"
+    = csrf_meta_tags
+    = stylesheet_link_tag 'dashboard'
+    %link{href: "http://fonts.googleapis.com/css?family=PT+Sans:400,700", rel: "stylesheet", type: "text/css"}/
+  %body
+    .mb40
+      = render 'partials/app_header'
+    .row.12.column
+      - if flash[:error]
+        .error.p20= flash[:error]
+      - if flash[:notice]
+        .notice.p20= flash[:notice]
+      - if flash[:alert]
+        .alert.p20= flash[:alert]
+    .row.main-wrap.group
+      = yield
+  = javascript_include_tag "application"

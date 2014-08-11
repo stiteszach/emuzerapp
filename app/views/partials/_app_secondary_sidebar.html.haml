@@ -1,0 +1,25 @@
+%p.sidebar-title
+  Overview
+%ul.secondary-side-nav
+  %li
+    = link_to 'My Resumes', root_path
+  %li 
+    = link_to 'Profile', edit_user_registration_path
+  %li 
+    = link_to "Stats", '#'
+  %li 
+    = link_to "Log Out", {:action => 'destroy', :controller => 'devise/sessions'}
+
+%p.sidebar-title
+  Jobs In Your Area
+%ul.secondary-side-nav
+  %li
+    = link_to 'Jr. Front-end developer', '#'
+  %li
+    = link_to 'Lead UX Designer', '#'
+  %li
+    = link_to 'User Interface Designer', '#'
+  %li
+    = link_to 'Web Designer', '#'
+  %br
+  = link_to 'View all >>', '#', :class => 'text-link'

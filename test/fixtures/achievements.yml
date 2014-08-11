@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  resume_id: 
+  achievement: MyString
+  start_date: 2013-10-17
+  end_date: 2013-10-17
+
+two:
+  resume_id: 
+  achievement: MyString
+  start_date: 2013-10-17
+  end_date: 2013-10-17

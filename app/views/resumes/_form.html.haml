@@ -1,0 +1,44 @@
+= simple_form_for(@resume) do |f|
+  - if @resume.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@resume.errors.count, "error")
+        prohibited this resume from being saved:
+      %ul
+        - @resume.errors.full_messages.each do |msg|
+          %li= msg
+  .group
+    .left.form-sections     
+      .group
+        %h5 Title
+        = f.input :title, :label => 'What job title do you want to achieve with this resume?'
+  .group
+    .left.form-sections
+      %h5 Summary
+      = f.input :summary, :class => '.rsn', :label => 'Give us a brief overview of what you are looking to achieve.'
+  .group
+    .left.form-sections
+      %h5 Experience
+      = f.fields_for :employments do |ff|
+        = render "employment_fields", :f => ff
+      .secondary.button= link_to_add_fields "Add New Employment", f, :employments
+  .group
+    .left.form-sections
+      %h5 Education
+      = f.fields_for :educations do |ff|
+        = render "education_fields", :f => ff
+      .secondary.button= link_to_add_fields "Add New Education", f, :educations
+  .group
+    .left.form-sections
+      %h5 Skills & Expertise
+      = f.fields_for :skills do |ff|
+        = render "skill_fields", :f => ff
+      .secondary.button= link_to_add_fields "Add New Skill", f, :skills
+  .group
+    .left.form-sections
+      %h5 Achievements
+      = f.fields_for :achievements do |ff|
+        = render "achievement_fields", :f => ff
+      .secondary.button= link_to_add_fields "Add New Achievement", f, :achievements
+      .actions
+        = f.submit "Next Step"

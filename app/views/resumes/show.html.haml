@@ -1,0 +1,68 @@
+- if user_signed_in?
+  = link_to 'Edit', edit_resume_path(@resume)
+  = link_to 'Back', resumes_path
+- else
+  = link_to 'Print', '#', :class => 'show-print-resume button'
+  = link_to 'Download', '#', :class => 'show-download-resume button'
+%p
+  = @resume.user.full_name
+  %hr/
+%p.group-large-12
+  .large-2.left
+    .strong
+      Summary
+  .large-10.left
+    = @resume.summary
+    %hr/
+%p.group.large-12
+  .large-2.left
+    .strong
+      Experience
+  .large-10.left
+    - @resume.employments.each do |exp|
+      %p
+        = exp.job_title
+        %br/
+        = exp.company
+        %br/
+        = exp.detail
+        %br/
+    %hr/
+%p.group.large-12
+  .large-2.left
+    .strong
+      Education
+  .large-10.left
+    - @resume.educations.each do |edu|
+      %p
+        = edu.institution
+        %br/
+        = edu.degree
+        %br/
+        = edu.field_of_study
+        %br/
+        = edu.start_date
+        %br/
+        = edu.end_date
+        %br/
+        = edu.detail
+        %br/
+    %hr/
+%p.group.large-12
+  .large-2.left
+    .strong
+      Skills
+  .large-10.left
+    %ul
+      - @resume.skills.each do |sk|
+        %li= sk.skill
+    %hr/
+%p.group.large-12
+  .large-2.left
+    .strong
+      Achievements
+  .large-10.left
+    %ul
+      - @resume.achievements.each do |ach|
+        %li= ach.achievement
+    %hr/

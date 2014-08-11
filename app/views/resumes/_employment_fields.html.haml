@@ -1,0 +1,8 @@
+= f.input :job_title
+= f.input :company
+.group.large-12.mtb10
+	.large-5.left
+		= f.input :start_date, as: :date, discard_day: true, order: [:month, :year]
+	.large-5.right
+		= f.input :end_date, as: :date, discard_day: true, order: [:month, :year]
+= f.input :detail

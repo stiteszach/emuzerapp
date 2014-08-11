@@ -1,0 +1,12 @@
+/ %p.dash-full-name= @current_user.full_name
+%ul.side-nav
+  %li.has-tip.tip-right{"data-tooltip" => "", title: 'My Resumes'}
+    = link_to image_tag('resumes-nav-icon.png'), root_path
+  %li.has-tip.tip-right{"data-tooltip" => "", title: 'Account Settings'}
+    = link_to image_tag('profile-nav-icon.png'), edit_user_registration_path
+  %li.has-tip.tip-right{"data-tooltip" => "", title: 'Resume Analytics'}
+    = link_to image_tag('stats-nav-icon.png'), '#'
+  %li.has-tip.tip-right{"data-tooltip" => "", title: 'Log Out'}
+    = link_to image_tag('logout-nav-icon.png'), {:action => 'destroy', :controller => 'devise/sessions'}
+  %li.has-tip.tip-right{"data-tooltip" => "", title: 'New Resume'}
+    = link_to image_tag('new-resume-nav-icon.png'), new_resume_path

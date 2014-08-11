@@ -1,0 +1,26 @@
+.main-session-wrapper
+  %h1{:class => 'main_title'}
+    Get Started with a Free Account
+    %span{:class => 'main_subtitle'}
+      Sign up in 30 seconds. No credit card required.
+  .signup-login-wrap
+    .data-container
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = devise_error_messages!
+
+        %div.group
+          = f.label :full_name, 'First and last name'
+          = f.text_field :full_name, :autofocus => true, :placeholder => 'John Doe'
+        %div.group
+          = f.label :email, 'Your email'
+          = f.email_field :email
+        %div.group
+          = f.label :password, 'Choose a password'
+          = f.password_field :password
+        %div.group
+          = f.label :password_confirmation, 'Confirm password'
+          = f.password_field :password_confirmation
+        %div.group
+          = f.submit "Sign Up Free", :class => "button"
+        %hr/
+        = render "devise/shared/links"

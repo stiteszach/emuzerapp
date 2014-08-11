@@ -1,0 +1,21 @@
+.header
+  .header-wrap.group 
+    %h3.m0.left.rfw
+      = link_to "emuzer", '/', :class => 'white-font'
+    %ul.inline-list.right.m0.ptb5
+      - if current_user
+        
+      - else
+        %li.myBtn.small-btn.bg-grey.tiny
+          = link_to "Sign In", {:action => 'new', :controller => 'devise/sessions'}
+      - if current_user
+        %li.myBtn.small-btn.bg-grey.tiny.mb0
+          %a{"data-dropdown" => "drop1", href: "#"} Account
+          %ul#drop1.f-dropdown{"data-dropdown-content" => ""}
+            %li
+              = link_to "Edit Account", {:action => 'edit', :controller => 'devise/registrations'}
+            %li
+              = link_to "Log Out", {:action => 'destroy', :controller => 'devise/sessions'}
+      - else
+        %li.myBtn.small-btn.orange-bg.tiny.mb0
+          = link_to "Sign up", {:action => 'new', :controller => 'devise/registrations'}, :class => "white-font"
